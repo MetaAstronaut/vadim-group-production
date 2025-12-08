@@ -1,0 +1,30 @@
+{
+  "name": "The Vadim Group",
+  "short_name": "Vadim Group",
+  "description": "Expert Home, Marine & RV Repair Services in Orlando",
+  "icons": [
+    {
+      "src": "/assets/VG_logo_main2.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/VG_logo_main.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/VG_logo_main2.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#003366",
+  "background_color": "#003366",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
+
