@@ -23,6 +23,7 @@ import { CityRotator } from "@/components/CityRotator";
 import { TestimonialsCarousel } from "@/components/marine-rv/TestimonialsCarousel";
 import { PortfolioCarousel } from "@/components/marine-rv/PortfolioCarousel";
 import { FAQAccordion } from "@/components/marine-rv/FAQAccordion";
+import { typography } from '@/lib/typography';
 
 // Messenger Icon SVG Component
 const MessengerIcon = () => (
@@ -435,7 +436,7 @@ export default function MarineRVPage() {
 
         <Container className="relative z-10 h-full flex flex-col justify-center py-8 sm:py-12 md:py-16 lg:py-24 px-4">
           <div className="max-w-6xl mx-auto text-center space-y-5 sm:space-y-6 md:space-y-8 w-full">
-            <h1 className="font-heading font-bold text-[32px] sm:text-[42px] md:text-5xl lg:text-6xl xl:text-7xl text-white flex flex-col items-center gap-2 md:gap-3 px-2" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em', lineHeight: '1.17' }}>
+            <h1 className={`font-heading font-bold ${typography.h1Hero} text-white flex flex-col items-center gap-2 md:gap-3 px-2`} style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em' }}>
               <span className="block">Marine & RV Repair</span>
               <span className="block">Services in</span>
               <div className="flex justify-center items-center h-[1.5em] overflow-hidden w-full max-w-full px-2">
@@ -443,7 +444,7 @@ export default function MarineRVPage() {
               </div>
             </h1>
             
-            <p className="text-white/90 max-w-2xl mx-auto leading-[1.6] text-base sm:text-lg md:text-xl px-4" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
+            <p className={`text-white/90 max-w-2xl mx-auto ${typography.heroSubtitle} px-4`} style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
               {pageData.hero.subtitle}
             </p>
 
@@ -492,9 +493,9 @@ export default function MarineRVPage() {
       <Section className="bg-surface py-24">
         <Container className="max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">{pageData.services.tag}</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">{pageData.services.title}</h2>
-            <p className="text-text-secondary">{pageData.services.description}</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>{pageData.services.tag}</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>{pageData.services.title}</h2>
+            <p className={`${typography.sectionDescription} text-text-secondary`}>{pageData.services.description}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -506,7 +507,7 @@ export default function MarineRVPage() {
               </div>
 
               {/* Title */}
-              <h3 className="font-heading text-2xl font-semibold text-brand-primary mb-3">
+              <h3 className={`font-heading ${typography.h3Card} font-semibold text-brand-primary mb-3`}>
                 Structural & Body Repairs (Light Scope)
               </h3>
 
@@ -538,7 +539,7 @@ export default function MarineRVPage() {
               </div>
 
               {/* Title */}
-              <h3 className="font-heading text-2xl font-semibold text-brand-primary mb-3">
+              <h3 className={`font-heading ${typography.h3Card} font-semibold text-brand-primary mb-3`}>
                 Electrical & Onboard Systems (Non-Licensed Scope)
               </h3>
 
@@ -569,7 +570,7 @@ export default function MarineRVPage() {
               </div>
 
               {/* Title */}
-              <h3 className="font-heading text-2xl font-semibold text-brand-primary mb-3">
+              <h3 className={`font-heading ${typography.h3Card} font-semibold text-brand-primary mb-3`}>
                 Water Damage & Moisture Repair
               </h3>
 
@@ -601,7 +602,7 @@ export default function MarineRVPage() {
               </div>
 
               {/* Title */}
-              <h3 className="font-heading text-2xl font-semibold text-brand-primary mb-3">
+              <h3 className={`font-heading ${typography.h3Card} font-semibold text-brand-primary mb-3`}>
                 Engine & Mechanical Repairs (Light Scope)
               </h3>
 
@@ -631,7 +632,7 @@ export default function MarineRVPage() {
                 {/* Left side - Text content */}
                 <div className="flex-1">
                   {/* Title */}
-                  <h3 className="font-heading text-2xl font-semibold text-brand-accent mb-3">
+                  <h3 className={`font-heading ${typography.h3Card} font-semibold text-brand-accent mb-3`}>
                     Get a Quick Marine & RV Repair Estimate
                   </h3>
                   
@@ -704,17 +705,17 @@ export default function MarineRVPage() {
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-12">
             {/* Label */}
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>
               EMERGENCY SERVICES
             </span>
 
             {/* Title */}
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-4`}>
               Priority Marine & RV Repairs When You Need Fast Help
             </h2>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className={`${typography.bodyLarge} text-gray-300 max-w-3xl mx-auto`}>
               When a boat or RV issue can't wait, we move your project to the front of the line. Fast attention helps prevent moisture damage, electrical failures, and trip-ending breakdowns. We also handle <Link href="/home-repairs#priority-services" className="text-brand-accent hover:underline">emergency home repairs</Link> if your RV is your residence.
             </p>
           </div>
@@ -840,15 +841,15 @@ export default function MarineRVPage() {
       <Section className="bg-bg-surface py-24">
         <Container className="max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">{pageData.whyMatters.tag}</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">{pageData.whyMatters.title}</h2>
-            <p className="text-text-secondary mb-8">{pageData.whyMatters.description}</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>{pageData.whyMatters.tag}</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>{pageData.whyMatters.title}</h2>
+            <p className={`${typography.sectionDescription} text-text-secondary mb-8`}>{pageData.whyMatters.description}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
              {pageData.whyMatters.blocks.map((block, i) => (
                <div key={i} className="bg-white p-6 rounded-lg border border-border-light shadow-sm hover:shadow-md hover:border-brand-accent/40 transition-all duration-300">
-                 <h3 className="font-heading text-xl font-bold text-brand-primary mb-4">
+                 <h3 className={`font-heading ${typography.processTitle} font-bold text-brand-primary mb-4`}>
                    {block.title}
                  </h3>
                  <ul className="space-y-3">
@@ -869,9 +870,9 @@ export default function MarineRVPage() {
       <Section className="bg-bg-subtle py-24">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">{pageData.maintenance.tag}</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">{pageData.maintenance.title}</h2>
-            <p className="text-text-secondary">{pageData.maintenance.description}</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>{pageData.maintenance.tag}</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>{pageData.maintenance.title}</h2>
+            <p className={`${typography.sectionDescription} text-text-secondary`}>{pageData.maintenance.description}</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -917,9 +918,9 @@ export default function MarineRVPage() {
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">WHY CHOOSE US</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">Why Marine & RV Owners Trust Vadim Group</h2>
-            <p className="text-text-secondary text-lg leading-relaxed">Boat and RV owners across the Orlando area rely on us for clean, precise repair work and calm, dependable service. Every project — from fiberglass patching to moisture diagnostics to interior panel repairs — is handled with care, honesty, and full respect for your vessel.</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>WHY CHOOSE US</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>Why Marine & RV Owners Trust Vadim Group</h2>
+            <p className={`text-text-secondary ${typography.bodyLarge}`}>Boat and RV owners across the Orlando area rely on us for clean, precise repair work and calm, dependable service. Every project — from fiberglass patching to moisture diagnostics to interior panel repairs — is handled with care, honesty, and full respect for your vessel.</p>
           </div>
 
           {/* Two-column layout: Left = Bullet Points + CTA (40%), Right = Carousel (60%) */}
@@ -952,8 +953,8 @@ export default function MarineRVPage() {
                   <div key={i} className="flex items-start gap-4 group">
                     <CheckCircle2 className="h-6 w-6 text-brand-accent shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                     <div>
-                      <h3 className="text-lg font-bold text-brand-primary mb-1">{bullet.title}</h3>
-                      <p className="text-base text-text-secondary leading-relaxed">{bullet.description}</p>
+                      <h3 className={`${typography.bodyLarge} font-bold text-brand-primary mb-1`}>{bullet.title}</h3>
+                      <p className={`${typography.body} text-text-secondary`}>{bullet.description}</p>
                     </div>
                   </div>
                 ))}
@@ -999,10 +1000,10 @@ export default function MarineRVPage() {
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
               {pageData.process.tag}
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6`}>
               How Our Repair Process Works
             </h2>
           </div>
@@ -1051,13 +1052,13 @@ export default function MarineRVPage() {
                   
                   {/* Step Content */}
                   <div className="flex-1 flex flex-col text-center md:text-left">
-                    {/* Title: Playfair Display, 20px, bold, gold - with min-height for alignment */}
-                    <h3 className="font-heading text-xl font-bold text-brand-accent mb-3 leading-tight md:min-h-[56px]">
+                    {/* Title: Unified process card typography */}
+                    <h3 className={`font-heading ${typography.processTitle} font-bold text-brand-accent mb-3 md:min-h-[56px]`}>
                       {step.title}
                     </h3>
                     
-                    {/* Description: 14px, light gray, 3-4 lines max */}
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
+                    {/* Description: Unified process card description */}
+                    <p className={`text-gray-300 ${typography.processDescription} line-clamp-4`}>
                       {step.description}
                     </p>
                   </div>
@@ -1188,43 +1189,43 @@ export default function MarineRVPage() {
       <Section className="bg-brand-primary text-white py-16 md:py-24 lg:py-32 text-center relative overflow-hidden">
         <Container className="relative z-10 px-4">
           {/* Tag: FREE ESTIMATE */}
-          <span className="text-brand-accent font-semibold tracking-[0.08em] text-sm sm:text-base uppercase block mb-4 md:mb-6">
+          <span className={`text-brand-accent ${typography.eyebrow} block mb-4 md:mb-6`}>
             FREE ESTIMATE
           </span>
           
           {/* CTA Headline: H2, white on dark */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 px-2">
+          <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6 md:mb-8 px-2`}>
             Ready to Get Your Boat or RV Back in Shape?
           </h2>
 
           {/* Subtitle - Marine & RV specific */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed">
+          <p className={`${typography.sectionDescription} text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 px-4`}>
             If your boat or RV needs attention, we can inspect the issue and recommend the right repair plan. Need <Link href="/home-repairs" className="text-brand-accent hover:underline">home repairs</Link> too?
           </p>
 
           {/* Trust statement before CTA - softer color to not compete with button */}
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium mb-6 md:mb-8 px-4">
-            Free Estimate — No Pressure. No Hidden Fees.
+          <p className={`${typography.bodyLarge} text-gray-400 font-medium mb-6 md:mb-8 px-4`}>
+            Free Estimate — No Pressure.<br className="sm:hidden" /> No Hidden Fees.
           </p>
 
           {/* PRIMARY CTA: Gold Facebook Messenger button with icon - ENLARGED */}
           <div className="flex flex-col items-center gap-3 md:gap-4 px-4 w-full max-w-full">
             <Button 
               asChild 
-              className="
+              className={`
                 bg-brand-accent 
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-base sm:text-lg md:text-xl
+                ${typography.ctaPrimary}
                 h-14 sm:h-16 md:h-[68px] lg:h-[72px]
                 px-6 sm:px-8 md:px-10 lg:px-12
-                w-full sm:w-auto sm:min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+                w-full sm:w-auto sm:min-w-[280px] md:min-w-[320px]
                 max-w-full
                 shadow-[0_4px_12px_rgba(0,0,0,0.15)]
                 hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)]
                 transition-[box-shadow,background-color] duration-300 ease-out
-              "
+              `}
               style={{
                 WebkitFontSmoothing: 'antialiased',
                 MozOsxFontSmoothing: 'grayscale'
@@ -1239,21 +1240,21 @@ export default function MarineRVPage() {
                 <span className="shrink-0 w-6 h-6 flex items-center justify-center">
                   <MessengerIcon />
                 </span>
-                <span className="truncate">Get a Free Estimate on Messenger</span>
+                <span>Get a Free Estimate on Messenger</span>
               </a>
             </Button>
             
             {/* Secondary text link */}
             <Link 
               href="/contact"
-              className="
+              className={`
                 text-gray-300 
                 hover:text-white 
-                text-sm sm:text-base
+                ${typography.ctaSmall}
                 inline-flex items-center gap-2
                 transition-colors duration-200
                 group
-              "
+              `}
             >
               Or email us your project details
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />

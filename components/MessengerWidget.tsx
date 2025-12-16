@@ -9,14 +9,47 @@ interface MessengerWidgetProps {
   className?: string;
 }
 
+// Extend Window interface for vendor-specific properties
+interface ExtendedWindow extends Window {
+  opera?: string;
+  MSStream?: unknown;
+}
+
+// Platform detection and smart link generation
+const getMessengerLink = (username: string): string => {
+  if (typeof window === 'undefined') return `https://m.me/${username}`;
+  
+  const extWindow = window as ExtendedWindow;
+  const userAgent = navigator.userAgent || navigator.vendor || extWindow.opera || '';
+  
+  // iOS devices - m.me works perfectly
+  if (/iPad|iPhone|iPod/.test(userAgent) && !extWindow.MSStream) {
+    return `https://m.me/${username}`;
+  }
+  
+  // Android devices - use intent URL with fallback
+  if (/android/i.test(userAgent)) {
+    // Try to open Messenger app, fallback to web version
+    return `https://www.facebook.com/messages/t/${username}`;
+  }
+  
+  // Desktop - open messenger.com
+  return `https://www.messenger.com/t/${username}`;
+};
+
 export const MessengerWidget: React.FC<MessengerWidgetProps> = ({
   messengerLink,
   className,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [smartLink, setSmartLink] = useState(messengerLink);
 
   useEffect(() => {
+    // Extract username from m.me link
+    const username = messengerLink.replace('https://m.me/', '');
+    setSmartLink(getMessengerLink(username));
+
     // Delay appearance by 2 seconds
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -41,7 +74,33 @@ export const MessengerWidget: React.FC<MessengerWidgetProps> = ({
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [messengerLink]);
+
+  // Handle click with smart fallback for Android
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const extWindow = window as ExtendedWindow;
+    const userAgent = navigator.userAgent || navigator.vendor || extWindow.opera || '';
+    
+    // Special handling for Android
+    if (/android/i.test(userAgent)) {
+      e.preventDefault();
+      
+      const username = messengerLink.replace('https://m.me/', '');
+      
+      // Try to open Messenger app first
+      const messengerAppUrl = `fb-messenger://user/${username}`;
+      const fallbackUrl = `https://www.facebook.com/messages/t/${username}`;
+      
+      // Attempt to open Messenger app
+      window.location.href = messengerAppUrl;
+      
+      // Fallback to web version after a short delay if app didn't open
+      setTimeout(() => {
+        window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+      }, 1000);
+    }
+    // For iOS and Desktop, use default behavior with smartLink
+  };
 
   return (
     <div
@@ -57,7 +116,8 @@ export const MessengerWidget: React.FC<MessengerWidgetProps> = ({
     >
       {/* Facebook Messenger Button */}
       <a
-        href={messengerLink}
+        href={smartLink}
+        onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
         className={cn(

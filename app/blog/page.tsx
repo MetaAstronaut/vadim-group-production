@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { getBlogPageData } from "@/utils/contentParsers";
 import BlogClientSection from "./BlogClientSection";
+import { typography } from '@/lib/typography';
 
 // Metadata Export
 export const metadata: Metadata = {
@@ -40,22 +41,22 @@ export default function BlogPage() {
         <Container className="max-w-4xl">
           <div className="text-center space-y-6">
             {/* Title */}
-            <h1 className="font-heading font-bold text-4xl md:text-5xl text-white">
+            <h1 className={`font-heading font-bold ${typography.h2Section} text-white`}>
               {data.hero.title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-brand-accent font-medium">
+            <p className={`${typography.sectionDescription} text-brand-accent font-medium`}>
               {data.hero.subtitle}
             </p>
 
             {/* Description */}
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            <p className={`${typography.bodyLarge} text-gray-300 max-w-2xl mx-auto`}>
               {data.hero.description}
             </p>
             
             {/* Service Links */}
-            <div className="flex flex-wrap justify-center items-center gap-3 text-base text-gray-300 mt-6">
+            <div className={`flex flex-wrap justify-center items-center gap-3 ${typography.body} text-gray-300 mt-6`}>
               <span>Explore our services:</span>
               <Link href="/home-repairs" className="text-brand-accent hover:underline font-medium">Home Repairs</Link>
               <span className="text-gray-500">|</span>

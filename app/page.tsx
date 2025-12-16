@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Hammer, Anchor, Siren, ArrowRight } from 'lucide-react';
+import { typography } from '@/lib/typography';
 
 // Metadata Export
 export const metadata: Metadata = {
@@ -432,7 +433,7 @@ export default function HomePage() {
 
         <Container className="relative z-10 h-full flex flex-col justify-center py-8 sm:py-12 md:py-16 lg:py-24 px-4">
           <div className="max-w-6xl mx-auto text-center space-y-5 sm:space-y-6 md:space-y-8 w-full">
-            <h1 className="font-heading font-bold text-[32px] sm:text-[42px] md:text-5xl lg:text-6xl xl:text-7xl text-white flex flex-col items-center gap-2 md:gap-3 px-2" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em', lineHeight: '1.17' }}>
+            <h1 className={`font-heading font-bold ${typography.h1Hero} text-white flex flex-col items-center gap-2 md:gap-3 px-2`} style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em' }}>
               <span className="block">Home, Marine & RV</span>
               <span className="block">Repair Services in</span>
               <div className="flex justify-center items-center h-[1.5em] overflow-hidden w-full max-w-full px-2">
@@ -440,7 +441,7 @@ export default function HomePage() {
               </div>
             </h1>
             
-            <p className="text-white/90 max-w-2xl mx-auto leading-[1.6] text-base sm:text-lg md:text-xl px-4" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
+            <p className={`text-white/90 max-w-2xl mx-auto ${typography.heroSubtitle} px-4`} style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
               Fast, reliable repair for homes, boats, and RVs in the Orlando area
             </p>
 
@@ -450,7 +451,7 @@ export default function HomePage() {
               {/* PRIMARY CTA: Gold button (Facebook Messenger) - 56px height */}
               <Button 
                 asChild 
-                className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 sm:h-14 md:h-[56px] px-5 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[200px] md:min-w-[220px] max-w-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300 text-sm sm:text-base md:text-lg"
+                className={`bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 sm:h-14 md:h-[56px] px-5 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[200px] md:min-w-[220px] max-w-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300 ${typography.ctaSecondary}`}
               >
                 <a 
                   href="https://m.me/vadimgroup"
@@ -468,7 +469,7 @@ export default function HomePage() {
               {/* SECONDARY CTA: White outline (Contact) - 56px height */}
               <Button 
                 asChild 
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-14 sm:h-14 md:h-[56px] px-5 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] max-w-full transition-all duration-300 text-sm sm:text-base md:text-lg"
+                className={`bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-14 sm:h-14 md:h-[56px] px-5 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] max-w-full transition-all duration-300 ${typography.ctaSecondary}`}
               >
                 <Link href="/contact">Contact Us</Link>
               </Button>
@@ -486,15 +487,15 @@ export default function HomePage() {
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            {/* Eyebrow label: 16px, semi-bold, uppercase, gold, tracked */}
-            <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+            {/* Eyebrow label: unified typography */}
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
               {data.services.tag}
             </span>
-            {/* H2: Playfair Display, text-primary */}
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-primary mb-6">
+            {/* H2: Unified section header */}
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>
               {data.services.title}
             </h2>
-            <p className="text-xl text-text-secondary">
+            <p className={`${typography.sectionDescription} text-text-secondary`}>
               {data.services.description}
             </p>
           </div>
@@ -521,13 +522,13 @@ export default function HomePage() {
                             <Icon className="h-12 w-12" strokeWidth={1.5} />
                         </div>
                         
-                        {/* Card Title: H3, Playfair Display */}
-                        <h3 className="font-heading text-2xl font-semibold text-brand-primary mb-3">
+                        {/* Card Title: H3, Unified typography */}
+                        <h3 className={`font-heading ${typography.h3Card} font-semibold text-brand-primary mb-3`}>
                           {item.title}
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-[15px] text-text-secondary mb-5 leading-[1.5]">
+                        <p className={`${typography.body} text-text-secondary mb-5`}>
                           {item.description}
                         </p>
                         
@@ -536,11 +537,11 @@ export default function HomePage() {
                             {item.features.map((feature, idx) => (
                                 <div key={idx}>
                                     {feature.category && (
-                                        <h4 className="font-bold text-base text-brand-primary mb-2">
+                                        <h4 className={`font-bold ${typography.bodySmall} text-brand-primary mb-2`}>
                                             {feature.category}
                                         </h4>
                                     )}
-                                    <ul className="space-y-1.5 text-[14px] text-text-secondary leading-[1.8]">
+                                    <ul className={`space-y-1.5 ${typography.bodySmall} text-text-secondary`}>
                                         {feature.items.map((featureItem, itemIdx) => (
                                             <li key={itemIdx} className="flex items-start gap-2">
                                                 <span className="text-brand-accent mt-0.5">•</span>
@@ -593,10 +594,10 @@ export default function HomePage() {
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
               {data.process.tag}
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6`}>
               {data.process.title}
             </h2>
           </div>
@@ -645,13 +646,13 @@ export default function HomePage() {
                   
                   {/* Step Content */}
                   <div className="flex-1 flex flex-col text-center md:text-left">
-                    {/* Title: Playfair Display, 20px, bold, gold - with min-height for alignment */}
-                    <h3 className="font-heading text-xl font-bold text-brand-accent mb-3 leading-tight md:min-h-[56px]">
+                    {/* Title: Unified process card typography */}
+                    <h3 className={`font-heading ${typography.processTitle} font-bold text-brand-accent mb-3 md:min-h-[56px]`}>
                       {step.title}
                     </h3>
                     
-                    {/* Description: 14px, light gray, 3-4 lines max */}
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
+                    {/* Description: Unified process card description */}
+                    <p className={`text-gray-300 ${typography.processDescription} line-clamp-4`}>
                       {step.description}
                     </p>
                   </div>
@@ -661,7 +662,7 @@ export default function HomePage() {
 
             {/* CTA Block */}
             <div className="mt-12 pt-10 border-t border-white/10 max-w-3xl mx-auto text-center">
-              <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">
+              <p className={`text-gray-300 ${typography.bodyLarge} mb-6`}>
                 Get a quick estimate or see examples of our work
               </p>
               
@@ -670,7 +671,7 @@ export default function HomePage() {
                 {/* Primary CTA: Gold Messenger Button */}
                 <Button 
                   asChild 
-                  className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 text-sm sm:text-base w-full sm:w-auto shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
+                  className={`bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 ${typography.ctaSmall} w-full sm:w-auto shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out`}
                   style={{
                     willChange: 'transform',
                     transform: 'translateZ(0)',
@@ -695,7 +696,7 @@ export default function HomePage() {
                 {/* Secondary CTA: White Outline Button */}
                 <Button 
                   asChild 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 text-sm sm:text-base w-full sm:w-auto transition-[background-color,border-color] duration-300 ease-out"
+                  className={`bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 ${typography.ctaSmall} w-full sm:w-auto transition-[background-color,border-color] duration-300 ease-out`}
                   style={{
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale'
@@ -752,17 +753,17 @@ export default function HomePage() {
             {/* Content Column - 50% width with balanced padding */}
             <div className="lg:pr-6">
                {/* Eyebrow Label */}
-               <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+               <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
                  {data.about.tag}
                </span>
                
-               {/* H2 Title: Playfair Display, Oxford Blue */}
-               <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-primary mb-4">
+               {/* H2 Title: Unified section header */}
+               <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-4`}>
                  {data.about.title}
                </h2>
                
                {/* Lead Quote - reduced gap from title */}
-               <p className="text-lg text-text-secondary mb-6 font-semibold italic">
+               <p className={`${typography.bodyLarge} text-text-secondary mb-6 font-semibold italic`}>
                  {data.about.quote}
                </p>
                
@@ -775,28 +776,28 @@ export default function HomePage() {
                   const secondPara = desc.substring(splitIndex).trim();
                   return (
                     <div className="space-y-4 mb-10">
-                      <p className="text-text-secondary leading-[1.65]">
+                      <p className={`text-text-secondary ${typography.body}`}>
                         Vadim Group provides <Link href="/home-repairs" className="text-brand-accent hover:underline font-medium">home repair</Link>, <Link href="/marine-rv" className="text-brand-accent hover:underline font-medium">marine, and RV services</Link> in the Orlando area, built on a simple idea: repairs should be done properly, without stress, mess, or inflated pricing.
                       </p>
-                      <p className="text-text-secondary leading-[1.65]">{secondPara}</p>
+                      <p className={`text-text-secondary ${typography.body}`}>{secondPara}</p>
                     </div>
                   );
                 }
                  return (
-                   <p className="text-text-secondary mb-10 leading-[1.65]">{desc}</p>
+                   <p className={`text-text-secondary mb-10 ${typography.body}`}>{desc}</p>
                  );
                })()}
                
                {/* Promise List - Enhanced spacing and markers */}
                <div className="space-y-6">
-                 <h3 className="font-heading text-xl font-semibold text-brand-primary mb-6">
+                 <h3 className={`font-heading ${typography.processTitle} font-semibold text-brand-primary mb-6`}>
                    {data.about.promiseTitle}
                  </h3>
                  {data.about.promiseItems.map((item, i) => (
                    <div key={i} className="flex items-start gap-4">
                      {/* Enhanced Gold bullet point */}
                      <div className="h-2.5 w-2.5 rounded-full bg-brand-accent mt-2.5 shrink-0" />
-                     <span className="text-text-secondary text-[15px] md:text-base leading-[1.7]">{item}</span>
+                     <span className={`text-text-secondary ${typography.body}`}>{item}</span>
                    </div>
                  ))}
                </div>
@@ -852,6 +853,25 @@ export default function HomePage() {
       {/* Design System v2.2: Section 6.10 - FAQ Accordion with Show More */}
       <Section className="bg-surface-subtle py-24 md:py-32">
         <Container max-width="container-md">
+           {/* FAQ Schema for SEO - Google uses this for rich snippets */}
+           <script
+             type="application/ld+json"
+             dangerouslySetInnerHTML={{
+               __html: JSON.stringify({
+                 "@context": "https://schema.org",
+                 "@type": "FAQPage",
+                 "mainEntity": data.faq.items.map(item => ({
+                   "@type": "Question",
+                   "name": item.question,
+                   "acceptedAnswer": {
+                     "@type": "Answer",
+                     "text": typeof item.answer === 'string' ? item.answer : item.question
+                   }
+                 }))
+               })
+             }}
+           />
+           
            <FAQAccordion 
              tag={data.faq.tag}
              title={data.faq.title}
@@ -861,7 +881,7 @@ export default function HomePage() {
            {/* Service Navigation Helper */}
            <div className="mt-16 pt-12 border-t border-border-light max-w-2xl mx-auto">
              <div className="text-center">
-               <p className="text-text-secondary text-lg mb-6">
+               <p className={`text-text-secondary ${typography.bodyLarge} mb-6`}>
                  Looking for specific services?
                </p>
                <div className="flex flex-wrap justify-center gap-4">
@@ -898,38 +918,38 @@ export default function HomePage() {
       <Section className="bg-brand-primary text-white py-16 md:py-24 lg:py-32 text-center relative overflow-hidden">
         <Container className="relative z-10 px-4">
           {/* Tag: FREE ESTIMATE */}
-          <span className="text-brand-accent font-semibold tracking-[0.08em] text-sm sm:text-base uppercase block mb-4 md:mb-6">
+          <span className={`text-brand-accent ${typography.eyebrow} block mb-4 md:mb-6`}>
             FREE ESTIMATE
           </span>
           
           {/* CTA Headline: H2, white on dark */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 px-2">
+          <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6 md:mb-8 px-2`}>
             Let's Fix the Problem — Fast and Professionally
           </h2>
 
           {/* Trust statement before CTA - softer color to not compete with button */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-medium mb-6 md:mb-8 px-4">
-            Free Estimate — No Pressure. No Hidden Fees.
+          <p className={`${typography.sectionDescription} text-gray-300 font-medium mb-6 md:mb-8 px-4`}>
+            Free Estimate — No Pressure.<br className="sm:hidden" /> No Hidden Fees.
           </p>
 
           {/* PRIMARY CTA: Gold Facebook Messenger button with icon - ENLARGED */}
           <div className="flex flex-col items-center gap-3 md:gap-4 px-4 w-full max-w-full">
             <Button 
               asChild 
-              className="
+              className={`
                 bg-brand-accent 
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-base sm:text-lg md:text-xl
+                ${typography.ctaPrimary}
                 h-14 sm:h-16 md:h-[68px] lg:h-[72px]
                 px-6 sm:px-8 md:px-10 lg:px-12
-                w-full sm:w-auto sm:min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+                w-full sm:w-auto sm:min-w-[280px] md:min-w-[320px]
                 max-w-full
                 shadow-lg
                 hover:shadow-xl
                 transition-all duration-300
-              "
+              `}
             >
               <a 
                 href="https://m.me/vadimgroup"
@@ -940,21 +960,21 @@ export default function HomePage() {
                 <span className="shrink-0 w-6 h-6 flex items-center justify-center">
                   <MessengerIcon />
                 </span>
-                <span className="truncate">Get a Free Estimate on Messenger</span>
+                <span>Get a Free Estimate on Messenger</span>
               </a>
             </Button>
             
             {/* Secondary text link */}
             <Link 
               href="/contact"
-              className="
+              className={`
                 text-gray-300 
                 hover:text-white 
-                text-sm sm:text-base
+                ${typography.ctaSmall}
                 inline-flex items-center gap-2
                 transition-colors duration-200
                 group
-              "
+              `}
             >
               Or email us your project details
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />

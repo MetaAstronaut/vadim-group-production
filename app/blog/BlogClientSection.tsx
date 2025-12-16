@@ -131,11 +131,15 @@ export default function BlogClientSection({
               <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
                 <div className="flex flex-col md:flex-row gap-3">
                   <input
+                    id="newsletter-email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
+                    aria-label="Email address for newsletter subscription"
                     className="
                       flex-1 px-4 py-3 rounded-md
                       bg-white text-brand-primary

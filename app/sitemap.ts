@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
+    // Service pages with FAQPage Schema (high SEO value)
     {
       url: 'https://vadimgroup.com/home-repairs',
       lastModified: new Date(),
@@ -55,11 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    // FAQ page with FAQPage Schema (good for rich snippets)
     {
       url: 'https://vadimgroup.com/faq',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.8,
     },
     {
       url: 'https://vadimgroup.com/privacy-policy',

@@ -19,8 +19,35 @@ export async function generateMetadata() {
 export default function FAQPage() {
   const { generalFAQs, servicesFAQs, pricingFAQs, bookingFAQs } = getFAQPageData();
 
+  // Combine all FAQs for Schema
+  const allFAQs = [
+    ...(generalFAQs || []),
+    ...(servicesFAQs || []),
+    ...(pricingFAQs || []),
+    ...(bookingFAQs || [])
+  ];
+
   return (
     <div className="flex min-h-screen flex-col">
+      {/* FAQPage Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": allFAQs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })
+        }}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-brand-primary to-brand-primary/90 py-20 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

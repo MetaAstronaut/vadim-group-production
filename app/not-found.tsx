@@ -1,22 +1,25 @@
 import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { Home, Hammer, Anchor, Phone, ArrowRight } from 'lucide-react';
+import { Home, Hammer, Anchor, MessageCircle, ArrowRight } from 'lucide-react';
 
 export default function NotFound() {
   return (
     <div className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center bg-gradient-to-b from-surface to-surface-subtle">
       <Container className="py-20">
         <div className="max-w-3xl mx-auto text-center">
-          {/* 404 Number with Gradient */}
-          <div className="mb-8">
+          {/* 404 Number with Modern Design */}
+          <div className="mb-8 relative">
             <h1 
-              className="font-heading text-9xl md:text-[200px] font-bold leading-none"
+              className="font-heading text-9xl md:text-[200px] font-bold leading-none relative inline-block"
               style={{
-                background: 'linear-gradient(135deg, #0F172A 0%, #C6A778 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                color: '#0F172A',
+                textShadow: `
+                  3px 3px 0px #C6A778,
+                  6px 6px 0px rgba(198, 167, 120, 0.6),
+                  9px 9px 0px rgba(198, 167, 120, 0.3),
+                  12px 12px 20px rgba(0, 0, 0, 0.2)
+                `
               }}
             >
               404
@@ -98,7 +101,7 @@ export default function NotFound() {
               className="group flex items-center gap-4 p-6 bg-white rounded-lg border-2 border-border-light hover:border-brand-accent hover:shadow-lg transition-all duration-300"
             >
               <div className="h-12 w-12 rounded-lg bg-brand-primary text-white flex items-center justify-center group-hover:bg-brand-accent transition-colors">
-                <Phone className="h-6 w-6" />
+                <MessageCircle className="h-6 w-6" />
               </div>
               <div className="text-left flex-1">
                 <div className="font-semibold text-brand-primary group-hover:text-brand-accent transition-colors">
@@ -115,15 +118,11 @@ export default function NotFound() {
           {/* Alternative CTA */}
           <div className="border-t border-border-light pt-8">
             <p className="text-text-muted mb-4">Need immediate assistance?</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-brand-accent hover:bg-brand-accent-hover text-primary-900">
+            <div className="flex justify-center">
+              <Button asChild size="lg" className="bg-brand-accent hover:bg-brand-accent-hover text-primary-900 gap-2">
                 <a href="https://m.me/vadimgroup" target="_blank" rel="noopener noreferrer">
-                  Message Us
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <a href="tel:+14073457890">
-                  Call: (407) 345-7890
+                  <MessageCircle className="h-5 w-5" />
+                  Message Us on Messenger
                 </a>
               </Button>
             </div>

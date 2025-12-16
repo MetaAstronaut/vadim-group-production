@@ -14,6 +14,7 @@ import { Section } from '@/components/ui/section';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { getBlogArticle, getAllBlogSlugs } from '@/lib/markdown';
+import { typography } from '@/lib/typography';
 
 // Generate static params for all blog articles
 export async function generateStaticParams() {
@@ -151,7 +152,7 @@ function ArticleContent({ content }: { content: string }) {
 
         return (
           <section key={index} className="scroll-mt-20">
-            <h2 className="text-3xl font-bold text-brand-primary mb-8 border-b-2 border-brand-accent/30 pb-3">
+            <h2 className={`${typography.h2Section} font-bold text-brand-primary mb-8 border-b-2 border-brand-accent/30 pb-3`}>
               {titleLine}
             </h2>
             <div>
@@ -203,7 +204,7 @@ function MarkdownContent({ content }: { content: string }) {
     if (line.startsWith('###') || line.startsWith('##')) {
       const text = line.replace(/^#+\s*/, '').replace(/\*\*/g, '').trim();
       elements.push(
-        <h3 key={elements.length} className="text-xl font-bold text-brand-primary mt-6 mb-3">
+        <h3 key={elements.length} className={`${typography.processTitle} font-bold text-brand-primary mt-6 mb-3`}>
           {text}
         </h3>
       );
@@ -527,12 +528,12 @@ export default async function BlogArticlePage({
           </div>
 
           {/* Title */}
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-brand-primary mb-6">
+          <h1 className={`font-heading font-bold ${typography.h1Hero} text-brand-primary mb-6`}>
             {article.title}
           </h1>
 
           {/* Description */}
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+          <p className={`${typography.sectionDescription} text-gray-700 mb-8`}>
             {article.description}
           </p>
 
@@ -582,10 +583,10 @@ export default async function BlogArticlePage({
       {/* Call to Action */}
       <Section className="bg-brand-primary py-12">
         <Container className="max-w-4xl text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-4`}>
             Need Help With Home Repairs?
           </h2>
-          <p className="text-xl text-gray-200 mb-8">
+          <p className={`${typography.sectionDescription} text-gray-200 mb-8`}>
             Vadim Group provides expert home repair services throughout Central Florida
           </p>
           <div className="flex flex-wrap justify-center gap-4 px-4">

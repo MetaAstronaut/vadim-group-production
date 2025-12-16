@@ -557,7 +557,7 @@ export default function ContactPage() {
           </h2>
 
           <p className="text-lg md:text-xl text-gray-400 font-medium mb-10">
-            Free Estimate — No Pressure. No Hidden Fees.
+            Free Estimate — No Pressure.<br className="sm:hidden" /> No Hidden Fees.
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -586,7 +586,7 @@ export default function ContactPage() {
                 <span className="shrink-0">
                   <MessengerIcon />
                 </span>
-                <span className="truncate">Get a Free Estimate on Messenger</span>
+                <span>Get a Free Estimate on Messenger</span>
               </a>
             </Button>
             

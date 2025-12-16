@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Award, HeartHandshake, Users } from 'lucide-react';
 import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
 import Image from 'next/image';
+import { typography } from '@/lib/typography';
 
 // Messenger Icon Component
 const MessengerIcon = () => (
@@ -290,11 +291,11 @@ export default function AboutPage() {
 
         <Container className="relative z-10 py-8 md:py-16 px-4">
           <div className="max-w-4xl mx-auto text-center space-y-5 md:space-y-6">
-            <h1 className="font-heading font-bold text-[32px] sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight px-2" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)' }}>
+            <h1 className={`font-heading font-bold ${typography.h1Hero} text-white px-2`} style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)' }}>
               About Vadim Group
             </h1>
             
-            <p className="text-white/90 max-w-2xl mx-auto leading-relaxed text-base sm:text-lg md:text-xl px-4" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
+            <p className={`text-white/90 max-w-2xl mx-auto ${typography.heroSubtitle} px-4`} style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
               Reliable, on-time repair and restoration services for homes, boats, and RVs — delivered with clean workmanship, clear communication, and no surprises
             </p>
           </div>
@@ -306,17 +307,17 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+              <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
                 ABOUT US
               </span>
-              <h2 className="font-heading font-bold text-3xl text-brand-primary">Our Story</h2>
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <h2 className={`font-heading font-bold ${typography.h2Section} text-brand-primary`}>Our Story</h2>
+              <p className={`text-text-secondary ${typography.bodyLarge}`}>
                 Vadim Group was created with one goal: to bring dependable, high-quality repair and restoration services to homeowners, boat owners, and RV owners across the Orlando area.
               </p>
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <p className={`text-text-secondary ${typography.bodyLarge}`}>
                 Vadim brings years of hands-on experience across multiple fields — from <Link href="/home-repairs" className="text-brand-accent hover:underline font-medium">residential repairs</Link> to structural <Link href="/marine-rv" className="text-brand-accent hover:underline font-medium">marine and RV restoration</Link>.
               </p>
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <p className={`text-text-secondary ${typography.bodyLarge}`}>
                 Clients trust us because we arrive when promised, communicate clearly, and deliver long-lasting results with clean, precise workmanship.
               </p>
             </div>
@@ -345,15 +346,15 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+              <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
                 CORE VALUES
               </span>
-              <h2 className="font-heading font-bold text-3xl text-brand-primary mb-8">Our Philosophy</h2>
-              <p className="text-text-secondary text-xl leading-relaxed">
+              <h2 className={`font-heading font-bold ${typography.h2Section} text-brand-primary mb-8`}>Our Philosophy</h2>
+              <p className={`text-text-secondary ${typography.sectionDescription}`}>
                 We believe repairs should be done properly the first time — with no shortcuts, no temporary fixes, and no hidden surprises
               </p>
               
-              <p className="text-text-secondary text-lg mt-6">
+              <p className={`text-text-secondary ${typography.bodyLarge} mt-6`}>
                 Our work is built on three principles:
               </p>
             </div>
@@ -368,8 +369,8 @@ export default function AboutPage() {
                 <div className="mx-auto h-16 w-16 bg-brand-primary/5 rounded-full flex items-center justify-center mb-6">
                   <item.icon className="h-8 w-8 text-brand-primary" />
                 </div>
-                <h3 className="font-heading font-bold text-xl text-brand-primary mb-3">{item.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">{item.desc}</p>
+                <h3 className={`font-heading font-bold ${typography.processTitle} text-brand-primary mb-3`}>{item.title}</h3>
+                  <p className={`text-text-secondary ${typography.bodySmall}`}>{item.desc}</p>
               </div>
             ))}
             </div>
@@ -397,16 +398,16 @@ export default function AboutPage() {
       <Section className="bg-surface-subtle py-24">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-3">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-3`}>
               OUR PORTFOLIO
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-4`}>
               Recent Projects
             </h2>
-            <p className="text-lg text-text-secondary">
+            <p className={`${typography.bodyLarge} text-text-secondary`}>
               Explore real repair and restoration work across <Link href="/home-repairs" className="text-brand-accent hover:underline font-medium">homes</Link>, <Link href="/marine-rv" className="text-brand-accent hover:underline font-medium">boats, and RVs</Link>.
             </p>
-            <p className="text-lg text-text-secondary mt-2">
+            <p className={`${typography.bodyLarge} text-text-secondary mt-2`}>
               From water-damage drywall repairs to structural deck restoration and marine interior rebuilds — our portfolio shows the care and precision behind every project.
             </p>
           </div>
@@ -419,17 +420,17 @@ export default function AboutPage() {
       <Section className="bg-brand-primary text-white py-16 md:py-24 lg:py-32 text-center relative overflow-hidden">
         <Container className="relative z-10 px-4">
           {/* Tag: FREE ESTIMATE */}
-          <span className="text-brand-accent font-semibold tracking-[0.08em] text-sm sm:text-base uppercase block mb-4 md:mb-6">
+          <span className={`text-brand-accent ${typography.eyebrow} block mb-4 md:mb-6`}>
             FREE ESTIMATE
           </span>
           
           {/* CTA Headline */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 px-2">
+          <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6 md:mb-8 px-2`}>
             Ready to Work Together?
           </h2>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-medium mb-6 md:mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
+          <p className={`${typography.sectionDescription} text-gray-300 font-medium mb-6 md:mb-8 max-w-2xl mx-auto px-4`}>
             If you value precision, responsibility, and clear communication, Vadim Group is the right partner for your home, marine, or RV repair needs.
           </p>
 
@@ -437,20 +438,20 @@ export default function AboutPage() {
           <div className="flex flex-col items-center gap-3 md:gap-4 px-4">
             <Button 
               asChild 
-              className="
+              className={`
                 bg-brand-accent 
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-base sm:text-lg md:text-xl
+                ${typography.ctaPrimary}
                 h-14 sm:h-16 md:h-[68px] lg:h-[72px]
                 px-6 sm:px-8 md:px-10 lg:px-12
-                w-full sm:w-auto sm:min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+                w-full sm:w-auto sm:min-w-[280px] md:min-w-[320px]
                 max-w-full
                 shadow-lg
                 hover:shadow-xl
                 transition-all duration-300
-              "
+              `}
             >
               <a 
                 href="https://m.me/vadimgroup"
@@ -461,21 +462,21 @@ export default function AboutPage() {
                 <span className="w-6 h-6 flex items-center justify-center shrink-0">
                   <MessengerIcon />
                 </span>
-                <span className="truncate">Get a Free Estimate on Messenger</span>
+                <span>Get a Free Estimate on Messenger</span>
               </a>
           </Button>
             
             {/* Secondary text link */}
             <Link 
               href="/contact"
-              className="
+              className={`
                 text-gray-300 
                 hover:text-white 
-                text-sm sm:text-base
+                ${typography.ctaSmall}
                 inline-flex items-center gap-2
                 transition-colors duration-200
                 group
-              "
+              `}
             >
               Or email us your project details
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />

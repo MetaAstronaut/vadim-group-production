@@ -14,6 +14,7 @@ import {
   Clock,
   Anchor
 } from "lucide-react";
+import { typography } from '@/lib/typography';
 
 // Metadata Export
 export const metadata: Metadata = {
@@ -644,7 +645,7 @@ export default function HomeRepairsPage() {
 
         <Container className="relative z-10 h-full flex flex-col justify-center py-8 sm:py-12 md:py-16 lg:py-24 px-4">
           <div className="max-w-6xl mx-auto text-center space-y-5 sm:space-y-6 md:space-y-8 w-full">
-            <h1 className="font-heading font-bold text-[32px] sm:text-[42px] md:text-5xl lg:text-6xl xl:text-7xl text-white flex flex-col items-center gap-2 md:gap-3 px-2" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em', lineHeight: '1.17' }}>
+            <h1 className={`font-heading font-bold ${typography.h1Hero} text-white flex flex-col items-center gap-2 md:gap-3 px-2`} style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em' }}>
               <span className="block">Home Repair & Restoration</span>
               <span className="block">Services in</span>
               <div className="flex justify-center items-center h-[1.5em] overflow-hidden w-full max-w-full px-2">
@@ -652,7 +653,7 @@ export default function HomeRepairsPage() {
               </div>
             </h1>
             
-            <p className="text-white/90 max-w-2xl mx-auto leading-[1.6] text-base sm:text-lg md:text-xl px-4" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
+            <p className={`text-white/90 max-w-2xl mx-auto ${typography.heroSubtitle} px-4`} style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
               Clean, reliable repair work for homes in the Orlando area —<br className="hidden md:inline" /> done the right way, without stress or surprises
             </p>
 
@@ -705,9 +706,9 @@ export default function HomeRepairsPage() {
       <Section className="bg-surface py-24">
         <Container className="max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">{data.services.tag}</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">{data.services.title}</h2>
-            <p className="text-text-secondary">{data.services.description}</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>{data.services.tag}</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>{data.services.title}</h2>
+            <p className={`${typography.sectionDescription} text-text-secondary`}>{data.services.description}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -805,13 +806,13 @@ export default function HomeRepairsPage() {
         <Container className="max-w-7xl">
           {/* Section Header - Centered */}
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>
               {data.education.tag}
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>
               {data.education.title}
             </h2>
-            <p className="text-text-secondary text-lg md:text-xl leading-relaxed">
+            <p className={`${typography.sectionDescription} text-text-secondary`}>
               {data.education.description}
             </p>
           </div>
@@ -820,7 +821,7 @@ export default function HomeRepairsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
             {/* Left Column - Common Reasons Cards - 60% (3 cols) */}
             <div className="lg:col-span-3">
-              <h3 className="font-heading text-2xl md:text-3xl font-bold text-brand-primary mb-7">
+              <h3 className={`font-heading ${typography.h3Card} font-bold text-brand-primary mb-7`}>
                 Common Reasons Homes Need Repairs
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
@@ -842,17 +843,17 @@ export default function HomeRepairsPage() {
                         MozOsxFontSmoothing: 'grayscale'
                       }}
                     >
-                      <div className="flex items-start gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center shrink-0 transition-colors duration-300 ease-out group-hover:bg-brand-accent/20">
-                          <span className="text-brand-accent font-bold text-base">{i + 1}</span>
+                        <div className="flex items-start gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center shrink-0 transition-colors duration-300 ease-out group-hover:bg-brand-accent/20">
+                            <span className={`text-brand-accent font-bold ${typography.bodySmall}`}>{i + 1}</span>
+                          </div>
+                          <h4 className={`font-bold text-brand-primary ${typography.bodyLarge} pt-1.5`}>
+                            {title}
+                          </h4>
                         </div>
-                        <h4 className="font-bold text-brand-primary text-base md:text-lg leading-tight pt-1.5">
-                          {title}
-                        </h4>
-                      </div>
-                      <p className="text-sm md:text-base text-text-secondary leading-[1.6] pl-[52px]">
-                        {desc}
-                      </p>
+                        <p className={`${typography.body} text-text-secondary pl-[52px]`}>
+                          {desc}
+                        </p>
                     </div>
                   );
                 })}
@@ -867,13 +868,13 @@ export default function HomeRepairsPage() {
                   <div className="w-14 h-14 rounded-xl bg-brand-accent/15 flex items-center justify-center shrink-0">
                     <Clock className="h-7 w-7 text-brand-accent" />
                   </div>
-                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-brand-primary leading-tight pt-1">
+                  <h3 className={`font-heading ${typography.h3Card} font-bold text-brand-primary pt-1`}>
                     {data.education.costTitle.replace(':', '')}
                   </h3>
                 </div>
                 
                 {/* Cost of Waiting Text */}
-                <div className="text-text-secondary leading-[1.7] text-base md:text-lg space-y-4 mb-8">
+                <div className={`text-text-secondary ${typography.bodyLarge} space-y-4 mb-8`}>
                   {data.education.costDesc.split('\n').map((line, i) => (
                     line.trim() && <p key={i}>{line.trim()}</p>
                   ))}
@@ -884,15 +885,15 @@ export default function HomeRepairsPage() {
 
                 {/* CTA Section */}
                 <div className="mt-auto">
-                  <h4 className="font-heading text-xl md:text-2xl font-bold text-brand-primary mb-4">
+                  <h4 className={`font-heading ${typography.processTitle} font-bold text-brand-primary mb-4`}>
                     Not sure if a repair can wait?
                   </h4>
-                  <p className="text-text-secondary text-base md:text-lg mb-7 leading-[1.6]">
+                  <p className={`text-text-secondary ${typography.bodyLarge} mb-7`}>
                     Send us a photo — we'll help assess it quickly
                   </p>
                   <Button 
                     asChild
-                    className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 md:h-14 px-4 sm:px-5 md:px-8 text-sm sm:text-base md:text-lg w-full shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
+                    className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 md:h-14 px-3 sm:px-4 md:px-6 text-xs sm:text-sm md:text-base w-full shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
                     style={{
                       willChange: 'transform',
                       transform: 'translateZ(0)',
@@ -905,12 +906,12 @@ export default function HomeRepairsPage() {
                       href="https://m.me/vadimgroup"
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2"
+                      className="inline-flex items-center justify-center gap-1.5 sm:gap-2"
                     >
                       <span className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
                         <MessengerIcon />
                       </span>
-                      <span className="truncate">Get a Free Estimate on Messenger</span>
+                      <span className="whitespace-nowrap">Get Free Estimate on Messenger</span>
                     </a>
                   </Button>
                 </div>
@@ -925,9 +926,9 @@ export default function HomeRepairsPage() {
       <Section className="bg-surface py-24">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">{data.maintenance.tag}</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">{data.maintenance.title}</h2>
-            <p className="text-text-secondary">{data.maintenance.description}</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>{data.maintenance.tag}</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>{data.maintenance.title}</h2>
+            <p className={`${typography.sectionDescription} text-text-secondary`}>{data.maintenance.description}</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -973,9 +974,9 @@ export default function HomeRepairsPage() {
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">{data.whyChooseUs.tag}</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-6">{data.whyChooseUs.title}</h2>
-            <p className="text-text-secondary text-lg leading-relaxed">{data.whyChooseUs.description}</p>
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>{data.whyChooseUs.tag}</span>
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-6`}>{data.whyChooseUs.title}</h2>
+            <p className={`text-text-secondary ${typography.bodyLarge}`}>{data.whyChooseUs.description}</p>
           </div>
 
           {/* Two-column layout: Left = Bullet Points + CTA (40%), Right = Carousel (60%) */}
@@ -987,8 +988,8 @@ export default function HomeRepairsPage() {
                   <div key={i} className="flex items-start gap-4 group">
                     <CheckCircle2 className="h-6 w-6 text-brand-accent shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                     <div>
-                      <h3 className="text-lg font-bold text-brand-primary mb-1">{bullet.title}</h3>
-                      <p className="text-base text-text-secondary leading-relaxed">{bullet.description}</p>
+                      <h3 className={`${typography.bodyLarge} font-bold text-brand-primary mb-1`}>{bullet.title}</h3>
+                      <p className={`${typography.body} text-text-secondary`}>{bullet.description}</p>
                     </div>
                   </div>
                 ))}
@@ -1027,10 +1028,10 @@ export default function HomeRepairsPage() {
         <Container className="overflow-visible">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>
               {data.reviews.tag}
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-brand-primary mb-4`}>
               {data.reviews.title}
             </h2>
             {/* Google Verification Badge - Moved to Header */}
@@ -1051,10 +1052,10 @@ export default function HomeRepairsPage() {
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-4">
+            <span className={`text-brand-accent ${typography.eyebrow} block mb-4`}>
               {data.process.tag}
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6`}>
               How Our Repair Process Works
             </h2>
           </div>
@@ -1103,13 +1104,13 @@ export default function HomeRepairsPage() {
                   
                   {/* Step Content */}
                   <div className="flex-1 flex flex-col text-center md:text-left">
-                    {/* Title: Playfair Display, 20px, bold, gold - with min-height for alignment */}
-                    <h3 className="font-heading text-xl font-bold text-brand-accent mb-3 leading-tight md:min-h-[56px]">
+                    {/* Title: Unified process card typography */}
+                    <h3 className={`font-heading ${typography.processTitle} font-bold text-brand-accent mb-3 md:min-h-[56px]`}>
                       {step.title}
                     </h3>
                     
-                    {/* Description: 14px, light gray, 3-4 lines max */}
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-4">
+                    {/* Description: Unified process card description */}
+                    <p className={`text-gray-300 ${typography.processDescription} line-clamp-4`}>
                       {step.description}
                     </p>
                   </div>
@@ -1242,43 +1243,43 @@ export default function HomeRepairsPage() {
       <Section className="bg-brand-primary text-white py-16 md:py-24 lg:py-32 text-center relative overflow-hidden">
         <Container className="relative z-10 px-4">
           {/* Tag: FREE ESTIMATE */}
-          <span className="text-brand-accent font-bold tracking-wider text-sm sm:text-base uppercase block mb-4 md:mb-6">
+          <span className={`text-brand-accent ${typography.eyebrow} block mb-4 md:mb-6`}>
             FREE ESTIMATE
           </span>
           
           {/* CTA Headline: H2, white on dark */}
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 px-2">
+          <h2 className={`font-heading ${typography.h2Section} font-bold text-white mb-6 md:mb-8 px-2`}>
             Ready to Restore Your Home?
           </h2>
 
           {/* Subtitle - added as per user request */}
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed">
+          <p className={`${typography.sectionDescription} text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 px-4`}>
             If you have damage, wear, or unfinished repairs, we're here to help you bring your home back to its best condition. Also need <Link href="/marine-rv" className="text-brand-accent hover:underline">marine or RV repairs</Link>?
           </p>
 
           {/* Trust statement before CTA - softer color to not compete with button */}
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium mb-6 md:mb-8 px-4">
-            Free Estimate — No Pressure. No Hidden Fees.
+          <p className={`${typography.bodyLarge} text-gray-400 font-medium mb-6 md:mb-8 px-4`}>
+            Free Estimate — No Pressure.<br className="sm:hidden" /> No Hidden Fees.
           </p>
 
           {/* PRIMARY CTA: Gold Facebook Messenger button with icon - ENLARGED */}
           <div className="flex flex-col items-center gap-3 md:gap-4 px-4 w-full max-w-full">
             <Button 
               asChild 
-              className="
+              className={`
                 bg-brand-accent 
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-base sm:text-lg md:text-xl
+                ${typography.ctaPrimary}
                 h-14 sm:h-16 md:h-[68px] lg:h-[72px]
                 px-6 sm:px-8 md:px-10 lg:px-12
-                w-full sm:w-auto sm:min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+                w-full sm:w-auto sm:min-w-[280px] md:min-w-[320px]
                 max-w-full
                 shadow-lg
                 hover:shadow-xl
                 transition-all duration-300
-              "
+              `}
             >
               <a 
                 href="https://m.me/vadimgroup"
@@ -1289,21 +1290,21 @@ export default function HomeRepairsPage() {
                 <span className="shrink-0 w-6 h-6 flex items-center justify-center">
                   <MessengerIcon />
                 </span>
-                <span className="truncate">Get a Free Estimate on Messenger</span>
+                <span>Get a Free Estimate on Messenger</span>
               </a>
             </Button>
             
             {/* Secondary text link */}
             <Link 
               href="/contact"
-              className="
+              className={`
                 text-gray-300 
                 hover:text-white 
-                text-sm sm:text-base
+                ${typography.ctaSmall}
                 inline-flex items-center gap-2
                 transition-colors duration-200
                 group
-              "
+              `}
             >
               Or email us your project details
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
