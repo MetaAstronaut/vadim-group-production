@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from "react";
 import { useState, useEffect, useRef } from "react";
 
 export const CityRotator = () => {
