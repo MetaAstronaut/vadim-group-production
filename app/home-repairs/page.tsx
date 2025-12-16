@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -619,13 +620,18 @@ export default function HomeRepairsPage() {
       />
       {/* --- HERO SECTION --- */}
       <div 
-        className="relative h-[calc(100vh-80px)] min-h-[600px] flex items-center justify-center overflow-hidden"
+        className="relative h-[calc(100vh-80px)] min-h-[500px] sm:min-h-[600px] flex items-center justify-center overflow-hidden w-full max-w-full"
         data-hero-section
       >
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/assets/blog/seasonal-maintenance.jpg)' }}
-          aria-hidden="true"
+        {/* Hero background image with priority loading */}
+        <Image
+          src="/assets/blog/seasonal-maintenance.jpg"
+          alt="Home repairs services background"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center"
+          sizes="100vw"
         />
         {/* Enhanced gradient overlay for better contrast */}
         <div 
@@ -636,33 +642,28 @@ export default function HomeRepairsPage() {
           aria-hidden="true" 
         />
 
-        <Container className="relative z-10 h-full flex flex-col justify-center py-16 md:py-24">
-          <div className="max-w-6xl mx-auto text-center space-y-6 md:space-y-8">
-            <h1 className="font-heading font-bold text-[36px] md:text-6xl lg:text-7xl text-white flex flex-col items-center gap-1 md:gap-3" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em', lineHeight: '1.17' }}>
+        <Container className="relative z-10 h-full flex flex-col justify-center py-8 sm:py-12 md:py-16 lg:py-24 px-4">
+          <div className="max-w-6xl mx-auto text-center space-y-5 sm:space-y-6 md:space-y-8 w-full">
+            <h1 className="font-heading font-bold text-[32px] sm:text-[42px] md:text-5xl lg:text-6xl xl:text-7xl text-white flex flex-col items-center gap-2 md:gap-3 px-2" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)', letterSpacing: '0.02em', lineHeight: '1.17' }}>
               <span className="block">Home Repair & Restoration</span>
               <span className="block">Services in</span>
-              <div className="flex justify-center items-center h-[1.5em] overflow-hidden">
+              <div className="flex justify-center items-center h-[1.5em] overflow-hidden w-full max-w-full px-2">
                  <CityRotator />
               </div>
             </h1>
             
-            <p className="text-white/90 max-w-2xl mx-auto leading-[1.6] text-[18px] md:text-[20px]" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
+            <p className="text-white/90 max-w-2xl mx-auto leading-[1.6] text-base sm:text-lg md:text-xl px-4" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
               Clean, reliable repair work for homes in the Orlando area —<br className="hidden md:inline" /> done the right way, without stress or surprises
             </p>
 
             {/* CTA Buttons - Same as home page */}
             {/* Mobile: flex-col with 12px gap, Desktop: flex-row with 16px gap */}
-            <div className="flex flex-col md:flex-row justify-center items-stretch md:items-center gap-3 md:gap-4 pt-6 md:pt-8">
+            <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 md:gap-4 pt-6 md:pt-8 px-4 w-full max-w-full">
               {/* PRIMARY CTA: Gold button (Facebook Messenger) - 56px height */}
               <Button 
                 asChild 
-                className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 md:h-[56px] px-8 min-w-[200px] shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
+                className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 sm:h-14 md:h-[56px] px-5 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[200px] md:min-w-[220px] max-w-full shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out text-sm sm:text-base md:text-lg"
                 style={{ 
-                  fontSize: '18px', 
-                  paddingTop: '16px', 
-                  paddingBottom: '16px', 
-                  paddingLeft: '32px', 
-                  paddingRight: '32px',
                   willChange: 'transform',
                   transform: 'translateZ(0)',
                   backfaceVisibility: 'hidden',
@@ -674,25 +675,20 @@ export default function HomeRepairsPage() {
                   href="https://m.me/vadimgroup"
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3"
+                  className="flex items-center justify-center gap-2 w-full"
                 >
-                  <span className="w-6 h-6 flex items-center justify-center">
+                  <span className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center shrink-0">
                     <MessengerIcon />
                   </span>
-                  Get a Free Estimate on Messenger
+                  <span className="truncate">Get a Free Estimate on Messenger</span>
                 </a>
               </Button>
 
               {/* SECONDARY CTA: White outline (See Our Work) - 56px height */}
               <Button 
                 asChild 
-                className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-14 md:h-[56px] px-8 min-w-[200px] transition-[background-color,border-color] duration-300 ease-out"
+                className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-14 sm:h-14 md:h-[56px] px-5 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[140px] md:min-w-[160px] max-w-full transition-[background-color,border-color] duration-300 ease-out text-sm sm:text-base md:text-lg"
                 style={{ 
-                  fontSize: '18px', 
-                  paddingTop: '16px', 
-                  paddingBottom: '16px', 
-                  paddingLeft: '32px', 
-                  paddingRight: '32px',
                   WebkitFontSmoothing: 'antialiased',
                   MozOsxFontSmoothing: 'grayscale'
                 }}
@@ -896,7 +892,7 @@ export default function HomeRepairsPage() {
                   </p>
                   <Button 
                     asChild
-                    className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 md:h-14 px-6 md:px-8 text-base md:text-lg w-full shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
+                    className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 md:h-14 px-4 sm:px-5 md:px-8 text-sm sm:text-base md:text-lg w-full shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
                     style={{
                       willChange: 'transform',
                       transform: 'translateZ(0)',
@@ -909,12 +905,12 @@ export default function HomeRepairsPage() {
                       href="https://m.me/vadimgroup"
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-3"
+                      className="inline-flex items-center justify-center gap-2"
                     >
-                      <span className="w-5 h-5 flex items-center justify-center">
+                      <span className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
                         <MessengerIcon />
                       </span>
-                      Get a Free Estimate on Messenger
+                      <span className="truncate">Get a Free Estimate on Messenger</span>
                     </a>
                   </Button>
                 </div>
@@ -973,7 +969,7 @@ export default function HomeRepairsPage() {
 
       {/* --- WHY CHOOSE US --- */}
       {/* COLOR SCHEME: Light Grey (#F1F5F9) - Subtle contrast for benefits */}
-      <Section className="bg-surface-subtle py-24">
+      <Section className="bg-surface-subtle py-16 md:py-20">
         <Container>
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -1027,7 +1023,7 @@ export default function HomeRepairsPage() {
       {/* --- TESTIMONIALS --- */}
       {/* Design System v2.2: Section 6.9 - Testimonial Cards with Carousel */}
       {/* COLOR SCHEME: White (#FFFFFF) - Clean showcase for social proof */}
-      <Section className="bg-surface py-20 md:py-24 overflow-hidden" style={{ isolation: 'isolate' }}>
+      <Section className="bg-surface py-12 md:py-16 overflow-hidden" style={{ isolation: 'isolate' }}>
         <Container className="overflow-visible">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -1128,11 +1124,11 @@ export default function HomeRepairsPage() {
               </p>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 px-4 sm:px-0">
                 {/* Primary CTA: Gold Messenger Button */}
                 <Button 
                   asChild 
-                  className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 px-8 text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
+                  className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 text-sm sm:text-base w-full sm:w-auto shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[transform,box-shadow,background-color] duration-300 ease-out"
                   style={{
                     willChange: 'transform',
                     transform: 'translateZ(0)',
@@ -1147,17 +1143,17 @@ export default function HomeRepairsPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2"
                   >
-                    <span className="w-5 h-5 flex items-center justify-center">
+                    <span className="w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center shrink-0">
                       <MessengerIcon />
                     </span>
-                    Get a Free Estimate on Messenger
+                    Get Your Free Estimate
                   </a>
                 </Button>
 
                 {/* Secondary CTA: White Outline Button */}
                 <Button 
                   asChild 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-14 px-8 text-base transition-[background-color,border-color] duration-300 ease-out"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 text-sm sm:text-base w-full sm:w-auto transition-[background-color,border-color] duration-300 ease-out"
                   style={{
                     WebkitFontSmoothing: 'antialiased',
                     MozOsxFontSmoothing: 'grayscale'
@@ -1243,30 +1239,30 @@ export default function HomeRepairsPage() {
       {/* Design System v2.2: Section 6.6 - Simplified CTA with single focus */}
       {/* COLOR SCHEME: Blue (#0F172A) - Strong conversion focus */}
       <div id="contact"></div>
-      <Section className="bg-brand-primary text-white py-24 md:py-32 text-center relative overflow-hidden">
-        <Container className="relative z-10">
+      <Section className="bg-brand-primary text-white py-16 md:py-24 lg:py-32 text-center relative overflow-hidden">
+        <Container className="relative z-10 px-4">
           {/* Tag: FREE ESTIMATE */}
-          <span className="text-brand-accent font-bold tracking-wider text-sm uppercase block mb-6">
+          <span className="text-brand-accent font-bold tracking-wider text-sm sm:text-base uppercase block mb-4 md:mb-6">
             FREE ESTIMATE
           </span>
           
           {/* CTA Headline: H2, white on dark */}
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 px-2">
             Ready to Restore Your Home?
           </h2>
 
           {/* Subtitle - added as per user request */}
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 px-4 leading-relaxed">
             If you have damage, wear, or unfinished repairs, we're here to help you bring your home back to its best condition. Also need <Link href="/marine-rv" className="text-brand-accent hover:underline">marine or RV repairs</Link>?
           </p>
 
           {/* Trust statement before CTA - softer color to not compete with button */}
-          <p className="text-base md:text-lg text-gray-400 font-medium mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 font-medium mb-6 md:mb-8 px-4">
             Free Estimate — No Pressure. No Hidden Fees.
           </p>
 
           {/* PRIMARY CTA: Gold Facebook Messenger button with icon - ENLARGED */}
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-3 md:gap-4 px-4 w-full max-w-full">
             <Button 
               asChild 
               className="
@@ -1274,33 +1270,26 @@ export default function HomeRepairsPage() {
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-xl
-                h-[72px]
-                px-12
-                min-w-[320px]
+                text-base sm:text-lg md:text-xl
+                h-14 sm:h-16 md:h-[68px] lg:h-[72px]
+                px-6 sm:px-8 md:px-10 lg:px-12
+                w-full sm:w-auto sm:min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+                max-w-full
                 shadow-lg
                 hover:shadow-xl
-                hover:-translate-y-0.5
-                transition-[transform,box-shadow,background-color] duration-300 ease-out
+                transition-all duration-300
               "
-              style={{
-                willChange: 'transform',
-                transform: 'translateZ(0)',
-                backfaceVisibility: 'hidden',
-                WebkitFontSmoothing: 'antialiased',
-                MozOsxFontSmoothing: 'grayscale'
-              }}
             >
               <a 
                 href="https://m.me/vadimgroup"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 w-full"
               >
-                <span className="w-[28px] h-[28px] flex items-center justify-center">
+                <span className="shrink-0 w-6 h-6 flex items-center justify-center">
                   <MessengerIcon />
                 </span>
-                Get a Free Estimate on Messenger
+                <span className="truncate">Get a Free Estimate on Messenger</span>
               </a>
             </Button>
             
@@ -1310,7 +1299,7 @@ export default function HomeRepairsPage() {
               className="
                 text-gray-300 
                 hover:text-white 
-                text-base
+                text-sm sm:text-base
                 inline-flex items-center gap-2
                 transition-colors duration-200
                 group

@@ -588,16 +588,16 @@ export default async function BlogArticlePage({
           <p className="text-xl text-gray-200 mb-8">
             Vadim Group provides expert home repair services throughout Central Florida
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 px-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 px-8 min-w-[200px] rounded-md shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300 text-lg"
+              className="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[160px] md:min-w-[200px] rounded-md shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300 text-base sm:text-lg"
             >
               Contact Us
             </Link>
             <Link
               href="/home-repairs"
-              className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-14 px-8 min-w-[200px] rounded-md transition-all duration-300 text-lg"
+              className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white hover:bg-white/10 hover:border-white/90 font-semibold h-12 sm:h-14 px-4 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[160px] md:min-w-[200px] rounded-md transition-all duration-300 text-base sm:text-lg"
             >
               View Our Services
             </Link>

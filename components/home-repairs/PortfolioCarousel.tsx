@@ -3,9 +3,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Badge } from '@/components/ui/badge';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import { getHomeRepairsPortfolio } from '@/data/portfolio';
 
 export function PortfolioCarousel() {

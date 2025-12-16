@@ -49,15 +49,16 @@ export const CityRotator = () => {
 
   return (
     <span 
-      className="relative inline-block overflow-hidden"
+      className="relative inline-block overflow-hidden w-full max-w-full"
       style={{ 
-        width: maxWidth ? `${maxWidth}px` : 'auto',
-        minWidth: '200px',
-        height: '1.5em', // Increased to accommodate descenders
+        width: maxWidth ? `min(${maxWidth}px, 90vw, 100%)` : 'auto',
+        maxWidth: '90vw',
+        minWidth: 'min(150px, 90vw)',
+        height: '1.5em',
         verticalAlign: 'bottom',
         letterSpacing: '0.02em',
         lineHeight: '1.5',
-        paddingBottom: '0.15em' // Extra space for descenders
+        paddingBottom: '0.15em'
       }}
     >
       {/* Hidden measurement span to calculate max width */}
@@ -72,16 +73,14 @@ export const CityRotator = () => {
 
       {/* Animated city name with absolute positioning */}
       <span 
-        className={`
-          absolute whitespace-nowrap text-white font-bold
-          transition-transform duration-700 ease-out
-        `}
+        className="absolute whitespace-nowrap text-white font-bold transition-transform duration-700 ease-out max-w-full overflow-hidden text-ellipsis"
         aria-live="polite"
         style={{ 
           letterSpacing: '0.02em',
           lineHeight: '1.5',
           left: '50%',
           top: 0,
+          maxWidth: '100%',
           transform: isExiting ? 'translateX(-50%) translateY(-100%)' : 'translateX(-50%) translateY(0)'
         }}
       >

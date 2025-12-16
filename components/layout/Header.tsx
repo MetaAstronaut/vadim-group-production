@@ -106,13 +106,14 @@ export default function Header() {
           className="flex items-center gap-3 relative z-50 group focus:outline-none"
           aria-label="Vadim Group - Home"
         >
-          {/* Logo Icon */}
+          {/* Logo Icon - Optimized for header display */}
           <Image 
-            src="/assets/VG_logo_main2.png" 
+            src="/assets/VG_logo_main2-optimized.webp" 
             alt="Vadim Group Logo" 
-            width={48}
-            height={48}
+            width={140}
+            height={140}
             className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-105"
+            priority
           />
           
           {/* Brand Text */}

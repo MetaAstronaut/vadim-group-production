@@ -20,13 +20,22 @@ const nextConfig: NextConfig = {
   // Optional: Configure asset prefix for CDN
   // assetPrefix: '',
   
-  // Webpack configuration to support raw markdown imports
+  // Webpack configuration
   webpack: (config) => {
+    // Support raw markdown imports
     config.module.rules.push({
       test: /\.md$/,
       type: 'asset/source',
     });
+    
     return config;
+  },
+  
+  // Experimental features for better performance
+  experimental: {
+    // Note: lucide-react optimization can cause issues with some icons
+    // Only optimize swiper for now
+    optimizePackageImports: ['swiper'],
   },
 };
 

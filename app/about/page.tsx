@@ -265,7 +265,7 @@ export default function AboutPage() {
       
       {/* --- HERO SECTION --- */}
       <div 
-        className="relative h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden"
+        className="relative h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden w-full max-w-full"
         data-hero-section
       >
         <div className="absolute inset-0 z-0">
@@ -274,7 +274,9 @@ export default function AboutPage() {
             alt="Professional craftsman at work in workshop"
             fill
             priority
+            fetchPriority="high"
             className="object-cover"
+            sizes="100vw"
           />
         </div>
         {/* Enhanced gradient overlay for better contrast */}
@@ -286,13 +288,13 @@ export default function AboutPage() {
           aria-hidden="true" 
         />
 
-        <Container className="relative z-10 py-16">
-          <div className="max-w-4xl mx-auto text-center space-y-5">
-            <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)' }}>
+        <Container className="relative z-10 py-8 md:py-16 px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-5 md:space-y-6">
+            <h1 className="font-heading font-bold text-[32px] sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight px-2" style={{ textShadow: '0 2px 16px rgba(0, 0, 0, 0.3)' }}>
               About Vadim Group
             </h1>
             
-            <p className="text-white/90 max-w-2xl mx-auto leading-relaxed text-lg md:text-xl" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
+            <p className="text-white/90 max-w-2xl mx-auto leading-relaxed text-base sm:text-lg md:text-xl px-4" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.2)' }}>
               Reliable, on-time repair and restoration services for homes, boats, and RVs — delivered with clean workmanship, clear communication, and no surprises
             </p>
           </div>
@@ -321,7 +323,14 @@ export default function AboutPage() {
             
             <div className="relative">
                <div className="aspect-[4/3] bg-surface-subtle rounded-lg overflow-hidden shadow-xl border border-border-light relative">
-                  <Image src="/assets/vadim-portrait.jpg" alt="Vadim at work" fill className="object-cover" />
+                  <Image 
+                    src="/assets/vadim-portrait-optimized.webp" 
+                    alt="Vadim at work" 
+                    fill 
+                    className="object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                </div>
                {/* Decorative element */}
                <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-brand-accent/10 rounded-full -z-10" />
@@ -378,7 +387,7 @@ export default function AboutPage() {
       </Section>
 
       {/* --- TESTIMONIALS --- */}
-      <Section className="bg-surface py-20 md:py-24 overflow-hidden" style={{ isolation: 'isolate' }}>
+      <Section className="bg-surface py-12 md:py-16 overflow-hidden" style={{ isolation: 'isolate' }}>
         <Container className="overflow-visible">
           <TestimonialsCarousel />
         </Container>
@@ -407,25 +416,25 @@ export default function AboutPage() {
       </Section>
 
       {/* --- CTA --- */}
-      <Section className="bg-brand-primary text-white py-24 md:py-32 text-center relative overflow-hidden">
-        <Container className="relative z-10">
+      <Section className="bg-brand-primary text-white py-16 md:py-24 lg:py-32 text-center relative overflow-hidden">
+        <Container className="relative z-10 px-4">
           {/* Tag: FREE ESTIMATE */}
-          <span className="text-brand-accent font-semibold tracking-[0.08em] text-base uppercase block mb-6">
+          <span className="text-brand-accent font-semibold tracking-[0.08em] text-sm sm:text-base uppercase block mb-4 md:mb-6">
             FREE ESTIMATE
           </span>
           
           {/* CTA Headline */}
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-8">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 px-2">
             Ready to Work Together?
           </h2>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-gray-300 font-medium mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 font-medium mb-6 md:mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
             If you value precision, responsibility, and clear communication, Vadim Group is the right partner for your home, marine, or RV repair needs.
           </p>
 
           {/* PRIMARY CTA: Gold Facebook Messenger button with icon */}
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-3 md:gap-4 px-4">
             <Button 
               asChild 
               className="
@@ -433,10 +442,11 @@ export default function AboutPage() {
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-xl
-                h-[72px]
-                px-12
-                min-w-[320px]
+                text-base sm:text-lg md:text-xl
+                h-14 sm:h-16 md:h-[68px] lg:h-[72px]
+                px-6 sm:px-8 md:px-10 lg:px-12
+                w-full sm:w-auto sm:min-w-[260px] md:min-w-[300px] lg:min-w-[320px]
+                max-w-full
                 shadow-lg
                 hover:shadow-xl
                 transition-all duration-300
@@ -446,12 +456,12 @@ export default function AboutPage() {
                 href="https://m.me/vadimgroup"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 w-full"
               >
-                <span className="w-[28px] h-[28px] flex items-center justify-center">
+                <span className="w-6 h-6 flex items-center justify-center shrink-0">
                   <MessengerIcon />
                 </span>
-                Get a Free Estimate on Messenger
+                <span className="truncate">Get a Free Estimate on Messenger</span>
               </a>
           </Button>
             
@@ -461,7 +471,7 @@ export default function AboutPage() {
               className="
                 text-gray-300 
                 hover:text-white 
-                text-base
+                text-sm sm:text-base
                 inline-flex items-center gap-2
                 transition-colors duration-200
                 group

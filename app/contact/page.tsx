@@ -2,25 +2,27 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import emailjs from "@emailjs/browser";
+import dynamic from "next/dynamic";
 import { Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Input } from "@/components/ui/input";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { toast } from "@/hooks/use-toast";
 
-// Initialize EmailJS with Public Key
-emailjs.init('kRxsxsISXJWAdROzB');
+// Dynamic import for ContactForm - loads react-hook-form, zod, and emailjs only when needed
+// SSR enabled for better SEO (form markup will be in initial HTML)
+const ContactForm = dynamic(() => import('./ContactForm'), {
+  loading: () => (
+    <div className="flex items-center justify-center py-12">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-accent"></div>
+    </div>
+  )
+});
 
 const MessengerIcon = ({ size = "w-6 h-6" }: { size?: string }) => (
   <svg viewBox="0 0 24 24" className={size} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -29,39 +31,10 @@ const MessengerIcon = ({ size = "w-6 h-6" }: { size?: string }) => (
 );
 
 /**
- * Contact Page with EmailJS Integration
+ * Contact Page - Optimized with Dynamic Imports
  * Design System V2.2 Compliant
- * 
- * EMAILJS CONFIGURED:
- * Service ID: service_y1xz00o
- * Template ID: template_77nhdhj
- * Public Key: kRxsxsISXJWAdROzB
  */
-
-// Form validation schema
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().optional(),
-  serviceType: z.string().min(1, "Please select a service type"),
-  location: z.string().optional(),
-  message: z.string().min(20, "Message must be at least 20 characters"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  });
-
   // JSON-LD Schemas for Contact Page
   const contactPageSchema = {
     "@context": "https://schema.org",
@@ -138,41 +111,6 @@ export default function ContactPage() {
     }
   };
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-
-    try {
-      // EmailJS integration
-      await emailjs.send(
-        'service_y1xz00o',
-        'template_77nhdhj',
-        {
-          from_name: data.name,
-          from_email: data.email,
-          phone: data.phone || 'Not provided',
-          service_type: data.serviceType,
-          location: data.location || 'Not provided',
-          message: data.message,
-        }
-      );
-
-      toast({
-        title: "Message sent!",
-        description: "We'll respond within 2-4 hours.",
-      });
-      reset();
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      toast({
-        title: "Failed to send",
-        description: "Please try Messenger or Email above.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <>
       {/* JSON-LD Schema Markup */}
@@ -217,17 +155,18 @@ export default function ContactPage() {
             <div className="pt-4">
               <Button 
                 asChild 
-                className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-14 md:h-[56px] px-8 min-w-[280px] shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300"
-                style={{ fontSize: '18px' }}
+                className="bg-brand-accent hover:bg-brand-accent-hover text-brand-primary font-semibold h-12 sm:h-14 md:h-[56px] px-4 sm:px-6 md:px-8 w-full sm:w-auto sm:min-w-[240px] md:min-w-[280px] shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.2)] transition-all duration-300 text-sm sm:text-base md:text-lg"
               >
                 <a 
                   href="https://m.me/vadimgroup"
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3"
+                  className="flex items-center justify-center gap-2 sm:gap-3"
                 >
-                  <MessengerIcon />
-                  Get a Free Estimate on Messenger
+                  <span className="shrink-0">
+                    <MessengerIcon />
+                  </span>
+                  <span className="truncate">Get a Free Estimate on Messenger</span>
                 </a>
               </Button>
             </div>
@@ -395,134 +334,13 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Form Card */}
+            {/* Form Card with Dynamic Import */}
             <div className="
               bg-white rounded-md p-6 md:p-10
               border border-border-light 
               shadow-[0_1px_3px_rgba(15,23,42,0.08)]
             ">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Name */}
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">
-                    Name <span className="text-destructive">*</span>
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Your full name"
-                    autoComplete="name"
-                    {...register("name")}
-                  />
-                  {errors.name && (
-                    <p className="text-sm text-destructive">{errors.name.message}</p>
-                  )}
-                </div>
-
-                {/* Email */}
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Email <span className="text-destructive">*</span>
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    autoComplete="email"
-                    {...register("email")}
-                  />
-                  {errors.email && (
-                    <p className="text-sm text-destructive">{errors.email.message}</p>
-                  )}
-                </div>
-
-                {/* Phone */}
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="text-sm font-medium text-foreground">
-                    Phone
-                  </label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="(407) 123-4567"
-                    autoComplete="tel"
-                    {...register("phone")}
-                  />
-                  {errors.phone && (
-                    <p className="text-sm text-destructive">{errors.phone.message}</p>
-                  )}
-                </div>
-
-                {/* Service Type */}
-                <div className="space-y-2">
-                  <label htmlFor="serviceType" className="text-sm font-medium text-foreground">
-                    Service Type <span className="text-destructive">*</span>
-                  </label>
-                  <select
-                    id="serviceType"
-                    {...register("serviceType")}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:border-brand-primary disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    <option value="">Select a service...</option>
-                    <option value="Home Repairs">Home Repairs</option>
-                    <option value="Marine Repairs">Marine Repairs</option>
-                    <option value="RV Repairs">RV Repairs</option>
-                    <option value="Emergency Service">Emergency Service</option>
-                  </select>
-                  {errors.serviceType && (
-                    <p className="text-sm text-destructive">{errors.serviceType.message}</p>
-                  )}
-                </div>
-
-                {/* Location */}
-                <div className="space-y-2">
-                  <label htmlFor="location" className="text-sm font-medium text-foreground">
-                    Location
-                  </label>
-                  <Input
-                    id="location"
-                    placeholder="City or area (e.g., Lake Nona)"
-                    autoComplete="address-level2"
-                    {...register("location")}
-                  />
-                  {errors.location && (
-                    <p className="text-sm text-destructive">{errors.location.message}</p>
-                  )}
-                </div>
-
-                {/* Message */}
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Message <span className="text-destructive">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    placeholder="Tell us what happened, where the issue is located, and how we can help."
-                    {...register("message")}
-                    className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:border-brand-primary resize-y disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                  {errors.message && (
-                    <p className="text-sm text-destructive">{errors.message.message}</p>
-                  )}
-                </div>
-
-                <Button
-                  type="submit"
-                  className="
-                    w-full md:w-auto
-                    bg-brand-accent hover:bg-brand-accent-hover 
-                    text-brand-primary 
-                    font-semibold
-                    py-6 px-10
-                    text-lg
-                    shadow-md hover:shadow-lg
-                    transition-all duration-300
-                  "
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
+              <ContactForm />
 
               {/* Info Note */}
               <div className="mt-8 pt-6 border-t border-border-light">
@@ -750,10 +568,10 @@ export default function ContactPage() {
                 hover:bg-brand-accent-hover 
                 text-brand-primary 
                 font-semibold 
-                text-xl
-                h-[72px]
-                px-12
-                min-w-[320px]
+                text-base sm:text-lg md:text-xl
+                h-14 sm:h-16 md:h-[72px]
+                px-6 sm:px-10 md:px-12
+                w-full sm:w-auto sm:min-w-[280px] md:min-w-[320px]
                 shadow-lg
                 hover:shadow-xl
                 transition-all duration-300
@@ -763,10 +581,12 @@ export default function ContactPage() {
                 href="https://m.me/vadimgroup"
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3"
+                className="inline-flex items-center gap-2 sm:gap-3"
               >
-                <MessengerIcon />
-                Get a Free Estimate on Messenger
+                <span className="shrink-0">
+                  <MessengerIcon />
+                </span>
+                <span className="truncate">Get a Free Estimate on Messenger</span>
               </a>
             </Button>
             
@@ -790,4 +610,3 @@ export default function ContactPage() {
     </>
   );
 }
-
