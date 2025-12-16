@@ -64,7 +64,7 @@ export default function ContactPage() {
     "@id": "https://vadimgroup.com/#organization",
     "name": "Vadim Group",
     "description": "Contact Vadim Group for professional repair services. Available daily 8 AM - 8 PM, emergency response 24/7. Serving Orlando metro area.",
-    "image": "https://vadimgroup.com/assets/home-hero.png",
+    "image": "https://vadimgroup.com/assets/home-hero.webp",
     "telephone": "+1-424-436-9115",
     "email": "vadimgroup.repairs@gmail.com",
     "address": {

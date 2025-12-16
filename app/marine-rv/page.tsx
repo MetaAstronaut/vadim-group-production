@@ -24,6 +24,7 @@ import { TestimonialsCarousel } from "@/components/marine-rv/TestimonialsCarouse
 import { PortfolioCarousel } from "@/components/marine-rv/PortfolioCarousel";
 import { FAQAccordion } from "@/components/marine-rv/FAQAccordion";
 import { typography } from '@/lib/typography';
+import '../swiper-styles.css'; // Load Swiper styles only on this page
 
 // Messenger Icon SVG Component
 const MessengerIcon = () => (

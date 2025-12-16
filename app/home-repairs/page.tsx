@@ -15,6 +15,7 @@ import {
   Anchor
 } from "lucide-react";
 import { typography } from '@/lib/typography';
+import '../swiper-styles.css'; // Load Swiper styles only on this page
 
 // Metadata Export
 export const metadata: Metadata = {

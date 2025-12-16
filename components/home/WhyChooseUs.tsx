@@ -153,10 +153,10 @@ export const WhyChooseUs = ({ data }: WhyChooseUsProps) => {
               <div className="flex justify-center md:justify-start shrink-0">
                 <div className="relative">
                   <Image 
-                    src="/assets/vadim-portrait.jpg" 
+                    src="/assets/vadim-portrait-small.webp" 
                     alt="Vadim Shakin" 
-                    width={64}
-                    height={64}
+                    width={128}
+                    height={128}
                     className="
                       w-14 h-14 md:w-16 md:h-16 
                       rounded-full 

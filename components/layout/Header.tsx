@@ -108,10 +108,10 @@ export default function Header() {
         >
           {/* Logo Icon - Optimized for header display */}
           <Image 
-            src="/assets/VG_logo_main2-optimized.webp" 
+            src="/assets/VG_logo_main2-header.webp" 
             alt="Vadim Group Logo" 
-            width={140}
-            height={140}
+            width={96}
+            height={96}
             className="w-10 h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-105"
             priority
           />

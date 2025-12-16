@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: "https://vadimgroup.com/contact",
     siteName: "Vadim Group",
     images: [{
-      url: "/assets/home-hero.png",
+      url: "/assets/home-hero.webp",
       width: 1200,
       height: 630,
     }],

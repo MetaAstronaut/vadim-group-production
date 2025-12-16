@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Hammer, Anchor, Siren, ArrowRight } from 'lucide-react';
 import { typography } from '@/lib/typography';
+import './swiper-styles.css'; // Load Swiper styles only on this page
 
 // Metadata Export
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://vadimgroup.com",
     siteName: "Vadim Group",
     images: [{
-      url: "/assets/home-hero.png",
+      url: "/assets/home-hero.webp",
       width: 1200,
       height: 630,
     }],
@@ -37,7 +38,7 @@ import TestimonialsCarousel from '@/components/home/TestimonialsCarousel';
 import FAQAccordion from '@/components/home/FAQAccordion';
 
 // Assets - replace with Next.js public paths
-const heroBg = '/assets/home-hero.png';
+const heroBg = '/assets/home-hero.webp';
 const vadimPortrait = '/assets/vadim-portrait-optimized.webp';
 
 // Messenger Icon Component
@@ -58,7 +59,7 @@ export default function HomePage() {
       keywords: "home repair orlando, marine repair orlando, rv repair orlando, emergency repairs, professional handyman orlando",
       ogTitle: "Expert Home, Marine & RV Repairs | Vadim Group Orlando",
       ogDescription: "Professional repair services in Orlando - homes, boats, and RVs",
-      ogImage: "/assets/home-hero.png"
+      ogImage: "/assets/home-hero.webp"
     },
     whyChooseUs: {
       tag: "WHY CHOOSE US",
@@ -256,7 +257,7 @@ export default function HomePage() {
     "@id": "https://vadimgroup.com/#organization",
     "name": "Vadim Group",
     "description": "Professional home repair, marine and RV services in Orlando. Fast response, transparent pricing, quality craftsmanship. Serving Orlando, Lake Nona, and surrounding areas.",
-    "image": "https://vadimgroup.com/assets/home-hero.png",
+    "image": "https://vadimgroup.com/assets/home-hero.webp",
     "telephone": "+1-424-436-9115",
     "email": "vadimgroup.repairs@gmail.com",
     "address": {

@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     description: 'Professional repair services for homes, boats, and RVs in Central Florida. Quality craftsmanship, transparent pricing, fast response.',
     images: [
       {
-        url: '/assets/home-hero.png',
+        url: '/assets/home-hero.webp',
         width: 1200,
         height: 630,
         alt: 'Vadim Group - Professional Repair Services',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vadim Group | Expert Repair Services',
     description: 'Professional home, marine, and RV repair services in Orlando',
-    images: ['/assets/home-hero.png'],
+    images: ['/assets/home-hero.webp'],
   },
   robots: {
     index: true,
@@ -108,6 +108,22 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
+        {/* Preconnect to critical external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* DNS prefetch for additional performance */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        
+        {/* Inline critical CSS for instant rendering */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          :root{--color-brand-primary:#0F172A;--color-brand-accent:#C6A778;--color-bg-body:#FAFAF9;--color-bg-surface:#FFFFFF;--color-text-primary:#0F172A;--color-text-secondary:#475569}
+          *{margin:0;padding:0;box-sizing:border-box}
+          html{scroll-behavior:smooth;overflow-x:hidden}
+          body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:var(--color-bg-body);color:var(--color-text-primary);min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+        `.replace(/\s+/g, ' ').trim() }} />
+        
         <meta name="theme-color" content="#003366" />
         <meta name="msapplication-TileColor" content="#003366" />
         <meta name="msapplication-TileImage" content="/assets/VG_logo_main2.png" />

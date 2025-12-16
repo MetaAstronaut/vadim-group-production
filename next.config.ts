@@ -14,6 +14,23 @@ const nextConfig: NextConfig = {
   // Configure trailing slashes for better static hosting
   trailingSlash: true,
   
+  // Optimize CSS loading and JavaScript compilation
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  
+  // Target modern browsers to reduce polyfills
+  experimental: {
+    // Optimize package imports
+    optimizePackageImports: ['swiper', 'lucide-react'],
+    // Optimize CSS loading
+    optimizeCss: true,
+  },
+  
+  // Configure SWC for modern browsers (no legacy polyfills)
+  // This will use the browserslist config from .browserslistrc
+  reactStrictMode: true,
+  
   // Optional: Configure base path if deploying to subdirectory
   // basePath: '',
   
@@ -21,21 +38,23 @@ const nextConfig: NextConfig = {
   // assetPrefix: '',
   
   // Webpack configuration
-  webpack: (config) => {
+  webpack: (config, { dev, isServer }) => {
     // Support raw markdown imports
     config.module.rules.push({
       test: /\.md$/,
       type: 'asset/source',
     });
     
+    // Optimize CSS in production
+    if (!dev && !isServer) {
+      // Enable CSS minification
+      config.optimization = {
+        ...config.optimization,
+        minimize: true,
+      };
+    }
+    
     return config;
-  },
-  
-  // Experimental features for better performance
-  experimental: {
-    // Note: lucide-react optimization can cause issues with some icons
-    // Only optimize swiper for now
-    optimizePackageImports: ['swiper'],
   },
 };
 

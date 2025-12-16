@@ -1,0 +1,24 @@
+# Browsers that we support
+# These browsers support all modern JavaScript features without polyfills
+
+# Production
+defaults and fully supports es6-module
+not IE 11
+not dead
+> 0.5%
+last 2 versions
+not op_mini all
+not and_qq > 0
+not kaios > 0
+
+# Modern browsers that support:
+# - Array.prototype.at
+# - Array.prototype.flat/flatMap
+# - Object.fromEntries/hasOwn
+# - String.prototype.trimStart/trimEnd
+Chrome >= 92
+Firefox >= 90
+Safari >= 15.4
+Edge >= 92
+iOS >= 15.4
+
